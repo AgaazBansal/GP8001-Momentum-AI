@@ -1,0 +1,9 @@
+.env
+.env.local
+.venv/
+venv/
+__pycache__/
+node_modules/
+build/
+*.log
+backend/chroma_db/

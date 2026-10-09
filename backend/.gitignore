@@ -1,0 +1,11 @@
+# Virtual Environment
+venv/
+
+# Environment variables
+.env
+
+# Python cache
+__pycache__/
+
+# Ignore Google client secret file
+client_secret.json

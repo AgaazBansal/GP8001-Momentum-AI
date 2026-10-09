@@ -1,0 +1,398 @@
+:root {
+  --primary-color: #00aaff;
+  --background-color: #1a1a1a; /* Dark background */
+  --surface-color: #2a2a2a; /* Slightly lighter surface for cards */
+  --text-color: #e6edf3;
+  --text-muted-color: #a0a0a0;
+  --border-color: #333333;
+  --accent-color: #5865f2;
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  /* This creates the subtle geometric pattern */
+  background-image:
+    linear-gradient(45deg, #2c2c2c 25%, transparent 25%),
+    linear-gradient(-45deg, #2c2c2c 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #2c2c2c 75%),
+    linear-gradient(-45deg, transparent 75%, #2c2c2c 75%);
+  background-size: 20px 20px;
+}
+
+.app-container {
+  background-color: rgba(26, 26, 26, 0.7); /* Semi-transparent overlay to make text readable */
+  backdrop-filter: blur(3px);
+  min-height: 100vh;
+}
+
+.App {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- Header --- */
+.hero-header {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.hero-header h1 {
+  font-size: 3.5rem;
+  margin: 0 0 10px;
+  letter-spacing: -1px;
+  background: -webkit-linear-gradient(45deg, #00aaff, #aa55ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-header .punchline {
+  font-size: 1.5rem;
+  color: var(--text-muted-color);
+  margin: 0;
+}
+
+/* --- Main Content --- */
+.main-content {
+  padding: 0 20px 40px;
+}
+
+.subtitle {
+  color: var(--text-muted-color);
+  text-align: center;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+
+/* --- Uploader View --- */
+.uploader-view {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: var(--surface-color);
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+
+.uploader-view h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-top: 0;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.upload-button {
+  padding: 20px;
+  border-radius: 8px;
+  border: 2px dashed var(--primary-color);
+  background-color: transparent;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.upload-button:hover {
+  background-color: rgba(0, 170, 255, 0.1);
+}
+
+.file-name {
+  text-align: center;
+  color: var(--text-muted-color);
+}
+
+.process-button {
+  padding: 18px;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.process-button:disabled {
+  background-color: #444;
+  cursor: not-allowed;
+}
+
+.status-message {
+  color: var(--primary-color);
+  text-align: center;
+  font-weight: bold;
+}
+
+.error {
+  color: #ff6b6b;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* --- Results View --- */
+.results-view {
+  display: grid;
+  grid-template-columns: 60% 1fr;
+  gap: 30px;
+}
+
+.minutes-column h2,
+.chat-column h2 {
+  font-size: 1.8rem;
+  margin-top: 0;
+}
+
+.output-container {
+  background-color: var(--surface-color);
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+
+.export-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.export-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.export-button {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.notion-status {
+  text-align: right;
+}
+
+.metadata-container {
+  margin-bottom: 20px;
+  background-color: #2c303a;
+  padding: 15px;
+  border-radius: 8px;
+  display: flex; /* Use flexbox for alignment */
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sentiment-display, .topics-display {
+  display: flex; /* This makes the label and value stay on the same line */
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.topics-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.topic-tag {
+  background-color: #4a4e56;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.9em;
+}
+
+.minutes-section {
+  margin-bottom: 20px;
+}
+
+.minutes-section h3 {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 8px;
+  margin-top: 0;
+}
+
+.minutes-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.minutes-section li {
+  background-color: #333740;
+  padding: 15px 15px 15px 40px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.minutes-section li p {
+  margin: 5px 0 0;
+}
+
+.delete-btn {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #555;
+  border: none;
+  color: white;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.minutes-section li:hover .delete-btn {
+  opacity: 1;
+}
+
+.add-item-btn {
+  width: 100%;
+  margin-top: 10px;
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px dashed var(--border-color);
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.manual-add-form {
+  background-color: #333740;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.manual-add-form input, .manual-add-form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  font-family: var(--font-family);
+  font-size: 1rem;
+  box-sizing: border-box;
+  background-color: var(--surface-color);
+  color: var(--text-color);
+}
+
+.manual-add-form .form-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.manual-add-form button {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--primary-color);
+  color: #1a1a1a;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.manual-add-form .cancel-btn {
+  background-color: #4a4e56;
+  color: var(--text-color);
+}
+
+
+/* --- Chat Column --- */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 70vh;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+}
+
+.chat-history {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 15px;
+}
+
+.chat-message {
+  padding: 10px 15px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  max-width: 80%;
+  line-height: 1.5;
+}
+
+.chat-message.user {
+  background-color: var(--accent-color);
+  color: white;
+  margin-left: auto;
+  width: fit-content;
+}
+
+.chat-message.bot {
+  background-color: #4a4e56;
+  color: white;
+  margin-right: auto;
+  width: fit-content; 
+}
+
+.chat-form {
+  display: flex;
+  gap: 10px;
+  padding: 15px;
+  border-top: 1px solid var(--border-color);
+}
+
+.chat-form input {
+  flex-grow: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #555;
+  background-color: #3c3f46;
+  color: white;
+  font-size: 1rem;
+}
+
+.chat-form button {
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--accent-color);
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .results-view {
+    grid-template-columns: 1fr;
+  }
+  .hero-header h1 {
+    font-size: 2.5rem;
+  }
+  .hero-header .punchline {
+    font-size: 1.2rem;
+  }
+}
